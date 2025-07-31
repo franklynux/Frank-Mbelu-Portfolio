@@ -14,13 +14,13 @@ const illustration = {
 };
 
 const greeting = {
-  username: "Franklyn Mbelu",
+  username: "$ Franklyn Mbelu",
   title: "Hi all, I'm Franklyn",
   subTitle: emoji(
     "A results-driven Cloud & DevOps Engineer ☁️🚀 with expertise in AWS, CI/CD, Infrastructure as Code, and automation. Passionate about building scalable, secure, and cost-optimized cloud solutions."
   ),
   resumeLink:
-    "https://drive.google.com/file/d/1ofFdKF_mqscH8WvXkSObnVvC9kK7Ldlu/view?usp=sharing",
+    "https://drive.google.com/file/d/1qpFBkSzFCraNY7jE2zGMRXzbxmIui8vj/view?usp=sharing",
   displayGreeting: true
 };
 
