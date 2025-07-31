@@ -16,7 +16,7 @@ export default function Projects() {
 
   useEffect(() => {
     const getRepoData = () => {
-      fetch(`${process.env.PUBLIC_URL || ''}/profile.json`)
+      fetch(`${process.env.PUBLIC_URL || ""}/profile.json`)
         .then(result => {
           if (result.ok) {
             return result.json();
@@ -25,7 +25,12 @@ export default function Projects() {
         })
         .then(response => {
           console.log("GitHub data loaded:", response);
-          if (response && response.data && response.data.user && response.data.user.pinnedItems) {
+          if (
+            response &&
+            response.data &&
+            response.data.user &&
+            response.data.user.pinnedItems
+          ) {
             setrepoFunction(response.data.user.pinnedItems.edges);
           } else {
             throw new Error("Invalid response structure");

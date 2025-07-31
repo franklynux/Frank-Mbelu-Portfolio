@@ -37,10 +37,13 @@ const skillsSection = {
   subTitle: "CLOUD & DEVOPS ENGINEER FOCUSED ON AUTOMATION AND RELIABILITY",
   skills: [
     emoji(
-      "⚡ Automating infrastructure and deployments using Terraform, Jenkins, Ansible, and GitHub Actions"
+      "⚡ Designing and implementing scalable, secure, and cost-effective cloud architectures primarily on AWS"
     ),
     emoji(
-      "⚡ Deploying and managing containerized apps on AWS ECS, EKS, and Docker"
+      "⚡ Automating infrastructure and deployments using Terraform, AWS CloudFormation, Ansible, and GitOps"
+    ),
+    emoji(
+      "⚡ Deploying and managing containerized apps on AWS ECR, ECS, EKS, and Docker"
     ),
     emoji(
       "⚡ Implementing CI/CD pipelines using Jenkins, GitHub Actions, and AWS CodePipeline"
@@ -48,12 +51,13 @@ const skillsSection = {
   ],
   softwareSkills: [
     {skillName: "aws", fontAwesomeClassname: "fab fa-aws"},
-    {skillName: "terraform", fontAwesomeClassname: "fab fa-aws"},
+    {skillName: "terraform", fontAwesomeClassname: "fas fa-layer-group"},
     {skillName: "docker", fontAwesomeClassname: "fab fa-docker"},
-    {skillName: "kubernetes", fontAwesomeClassname: "fas fa-network-wired"},
+    {skillName: "kubernetes", fontAwesomeClassname: "fas fa-dharmachakra"},
     {skillName: "python", fontAwesomeClassname: "fab fa-python"},
     {skillName: "linux", fontAwesomeClassname: "fab fa-linux"},
-    {skillName: "github", fontAwesomeClassname: "fab fa-github"}
+    {skillName: "github", fontAwesomeClassname: "fab fa-github"},
+    {skillName: "bash", fontAwesomeClassname: "fas fa-terminal"}
   ],
   display: true
 };
