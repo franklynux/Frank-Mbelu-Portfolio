@@ -1,4 +1,3 @@
-
 /* Franklyn Mbelu's DevOps Portfolio Configuration */
 
 import emoji from "react-easy-emoji";
@@ -20,7 +19,8 @@ const greeting = {
   subTitle: emoji(
     "A results-driven Cloud & DevOps Engineer ☁️🚀 with expertise in AWS, CI/CD, Infrastructure as Code, and automation. Passionate about building scalable, secure, and cost-optimized cloud solutions."
   ),
-  resumeLink: "https://drive.google.com/file/d/1ofFdKF_mqscH8WvXkSObnVvC9kK7Ldlu/view?usp=sharing",
+  resumeLink:
+    "https://drive.google.com/file/d/1ofFdKF_mqscH8WvXkSObnVvC9kK7Ldlu/view?usp=sharing",
   displayGreeting: true
 };
 
@@ -36,18 +36,24 @@ const skillsSection = {
   title: "What I do",
   subTitle: "CLOUD & DEVOPS ENGINEER FOCUSED ON AUTOMATION AND RELIABILITY",
   skills: [
-    emoji("⚡ Automating infrastructure and deployments using Terraform, Jenkins, Ansible, and GitHub Actions"),
-    emoji("⚡ Deploying and managing containerized apps on AWS ECS, EKS, and Docker"),
-    emoji("⚡ Implementing CI/CD pipelines using Jenkins, GitHub Actions, and AWS CodePipeline")
+    emoji(
+      "⚡ Automating infrastructure and deployments using Terraform, Jenkins, Ansible, and GitHub Actions"
+    ),
+    emoji(
+      "⚡ Deploying and managing containerized apps on AWS ECS, EKS, and Docker"
+    ),
+    emoji(
+      "⚡ Implementing CI/CD pipelines using Jenkins, GitHub Actions, and AWS CodePipeline"
+    )
   ],
   softwareSkills: [
-    { skillName: "aws", fontAwesomeClassname: "fab fa-aws" },
-    { skillName: "terraform", fontAwesomeClassname: "fab fa-aws" },
-    { skillName: "docker", fontAwesomeClassname: "fab fa-docker" },
-    { skillName: "kubernetes", fontAwesomeClassname: "fas fa-network-wired" },
-    { skillName: "python", fontAwesomeClassname: "fab fa-python" },
-    { skillName: "linux", fontAwesomeClassname: "fab fa-linux" },
-    { skillName: "github", fontAwesomeClassname: "fab fa-github" }
+    {skillName: "aws", fontAwesomeClassname: "fab fa-aws"},
+    {skillName: "terraform", fontAwesomeClassname: "fab fa-aws"},
+    {skillName: "docker", fontAwesomeClassname: "fab fa-docker"},
+    {skillName: "kubernetes", fontAwesomeClassname: "fas fa-network-wired"},
+    {skillName: "python", fontAwesomeClassname: "fab fa-python"},
+    {skillName: "linux", fontAwesomeClassname: "fab fa-linux"},
+    {skillName: "github", fontAwesomeClassname: "fab fa-github"}
   ],
   display: true
 };
@@ -69,9 +75,9 @@ const educationInfo = {
 const techStack = {
   viewSkillBars: true,
   experience: [
-    { Stack: "Infrastructure as Code", progressPercentage: "90%" },
-    { Stack: "Cloud Architecture", progressPercentage: "85%" },
-    { Stack: "CI/CD Automation", progressPercentage: "80%" }
+    {Stack: "Infrastructure as Code", progressPercentage: "90%"},
+    {Stack: "Cloud Architecture", progressPercentage: "85%"},
+    {Stack: "CI/CD Automation", progressPercentage: "80%"}
   ],
   displayCodersrank: false
 };
@@ -116,14 +122,26 @@ const bigProjects = {
     {
       image: require("./assets/images/E-commerce Platform Deployment with Amazon ECS.png"),
       projectName: "E-commerce Platform Deployment on Amazon ECS",
-      projectDesc: "CI/CD pipeline using GitHub Actions + ECS with zero-downtime deployment strategy.",
-      footerLink: [{ name: "View on GitHub", url: "https://github.com/franklynux/ecommerce-platform/blob/main/README.md" }]
+      projectDesc:
+        "CI/CD pipeline using GitHub Actions + ECS with zero-downtime deployment strategy.",
+      footerLink: [
+        {
+          name: "View on GitHub",
+          url: "https://github.com/franklynux/ecommerce-platform/blob/main/README.md"
+        }
+      ]
     },
     {
       image: require("./assets/images/E-commerce Platform Microservice Architecture.png"),
       projectName: "E-commerce Platform Microservice Architecture",
-      projectDesc: "A production-ready, scalable e-commerce platform built with microservices architecture, featuring automated CI/CD, comprehensive monitoring, and cloud-native deployment on Amazon EKS.",
-      footerLink: [{ name: "View on GitHub", url: "https://github.com/franklynux/ecommerce-platform-microservice-architecture/blob/main/README.md" }]
+      projectDesc:
+        "A production-ready, scalable e-commerce platform built with microservices architecture, featuring automated CI/CD, comprehensive monitoring, and cloud-native deployment on Amazon EKS.",
+      footerLink: [
+        {
+          name: "View on GitHub",
+          url: "https://github.com/franklynux/ecommerce-platform-microservice-architecture/blob/main/README.md"
+        }
+      ]
     }
   ],
   display: true
@@ -131,7 +149,8 @@ const bigProjects = {
 
 const achievementSection = {
   title: emoji("Achievements And Certifications 🏆"),
-  subtitle: "AWS Certifications and hands-on accomplishments in cloud engineering.",
+  subtitle:
+    "AWS Certifications and hands-on accomplishments in cloud engineering.",
   achievementsCards: [
     {
       title: "AWS Certified Solutions Architect - Associate",
@@ -160,7 +179,8 @@ const achievementSection = {
 
 const blogSection = {
   title: "Blogs",
-  subtitle: "I occasionally write about DevOps automation, cloud architecture, and tooling.",
+  subtitle:
+    "I occasionally write about DevOps automation, cloud architecture, and tooling.",
   displayMediumBlogs: "false",
   blogs: [],
   display: true
@@ -168,7 +188,9 @@ const blogSection = {
 
 const talkSection = {
   title: "TALKS",
-  subtitle: emoji("Always open to sharing my knowledge and speaking at events."),
+  subtitle: emoji(
+    "Always open to sharing my knowledge and speaking at events."
+  ),
   talks: [],
   display: false
 };
@@ -188,7 +210,8 @@ const resumeSection = {
 
 const contactInfo = {
   title: emoji("Contact Me ☎️"),
-  subtitle: "Let’s connect — whether you have a project or just want to say hi.",
+  subtitle:
+    "Let’s connect — whether you have a project or just want to say hi.",
   number: "+234 703 100 8161",
   email_address: "mac_franc@yahoo.com"
 };
