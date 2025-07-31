@@ -79,9 +79,9 @@ const educationInfo = {
 const techStack = {
   viewSkillBars: true,
   experience: [
-    {Stack: "Infrastructure as Code", progressPercentage: "90%"},
-    {Stack: "Cloud Architecture", progressPercentage: "85%"},
-    {Stack: "CI/CD Automation", progressPercentage: "80%"}
+    {Stack: "Infrastructure as Code", progressPercentage: "85%"},
+    {Stack: "Cloud Architecture", progressPercentage: "90%"},
+    {Stack: "CI/CD Automation", progressPercentage: "85%"}
   ],
   displayCodersrank: false
 };
