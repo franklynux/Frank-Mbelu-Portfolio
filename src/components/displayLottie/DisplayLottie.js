@@ -9,14 +9,15 @@ export default class DisplayLottie extends Component {
   render() {
     const {isDark} = this.context;
     const animationData = this.props.animationData;
-    
+
     // Clone animation data to avoid mutating the original
     const modifiedAnimationData = JSON.parse(JSON.stringify(animationData));
-    
+
     // Find and modify background layers
     if (modifiedAnimationData.layers) {
       modifiedAnimationData.layers.forEach(layer => {
-        if (layer.ty === 1 && layer.sc) { // Solid color layer
+        if (layer.ty === 1 && layer.sc) {
+          // Solid color layer
           layer.sc = isDark ? "#1a1a1a" : "#ffffff";
         }
       });

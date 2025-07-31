@@ -37,16 +37,16 @@ const skillsSection = {
   subTitle: "CLOUD & DEVOPS ENGINEER FOCUSED ON AUTOMATION AND RELIABILITY",
   skills: [
     emoji(
-      "⚡ Designing and implementing scalable, secure, and cost-effective cloud architectures primarily on AWS"
+      "⚡ Design and implement scalable, secure, and cost-effective cloud architectures for your businesses on AWS and Azure"
     ),
     emoji(
-      "⚡ Automating infrastructure and deployments using Terraform, AWS CloudFormation, Ansible, and GitOps"
+      "⚡ Automate infrastructure and deployments using Terraform, AWS CloudFormation, Ansible, and GitOps for seamless, repeatable operations"
     ),
     emoji(
-      "⚡ Deploying and managing containerized apps on AWS ECR, ECS, EKS, and Docker"
+      "⚡ Deploy and manage containerized apps on AWS ECR, ECS, EKS, and Docker for high availability and performance"
     ),
     emoji(
-      "⚡ Implementing CI/CD pipelines using Jenkins, GitHub Actions, and AWS CodePipeline"
+      "⚡ Implement CI/CD pipelines using Jenkins, GitHub Actions, and AWS CodePipeline for rapid, reliable software delivery"
     )
   ],
   softwareSkills: [
