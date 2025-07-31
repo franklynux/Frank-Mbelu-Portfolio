@@ -21,11 +21,15 @@ export default function Projects() {
           if (result.ok) {
             return result.json();
           }
-          throw result;
+          throw new Error(`HTTP ${result.status}: ${result.statusText}`);
         })
         .then(response => {
           console.log("GitHub data loaded:", response);
-          setrepoFunction(response.data.user.pinnedItems.edges);
+          if (response && response.data && response.data.user && response.data.user.pinnedItems) {
+            setrepoFunction(response.data.user.pinnedItems.edges);
+          } else {
+            throw new Error("Invalid response structure");
+          }
         })
         .catch(function (error) {
           console.error(
