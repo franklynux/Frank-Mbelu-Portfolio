@@ -1,0 +1,48 @@
+@import "../../_globalColor";
+
+.skills-main-div {
+  display: flex;
+}
+
+.skills-text-div {
+  margin-left: 0px;
+}
+
+.skills-main-div > * {
+  flex: 1;
+  margin-bottom: 30px;
+}
+
+.skills-text {
+  font-size: 20px;
+  line-height: 1.5;
+  text-align: left;
+  color: $subTitle;
+  margin-bottom: 10px;
+}
+
+.skills-text-subtitle {
+  margin-bottom: 75px;
+}
+
+.skills-heading {
+  font-size: 56px;
+  font-weight: 400;
+  margin-bottom: 15px;
+}
+
+/* Media Query */
+@media (max-width: 1380px) {
+  .skills-heading {
+    font-size: 40px;
+  }
+}
+@media (max-width: 768px) {
+  .skills-text-div {
+    margin-left: 0px;
+    margin: 20px;
+  }
+  .skills-main-div {
+    display: block;
+  }
+}
