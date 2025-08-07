@@ -173,8 +173,21 @@ const bigProjects = {
   subtitle: "Some of the impactful solutions I've built or contributed to:",
   projects: [
     {
+      image: require("./assets/images/terraform_infrastructure_diagram.png"),
+      projectName: "Automated WordPress Deployment on AWS using Terraform",
+      projectDesc:
+        "Enterprise-grade WordPress platform with modular Terraform architecture, featuring auto-scaling, load balancing, RDS database, EFS storage, and comprehensive monitoring on AWS.",
+      footerLink: [
+        {
+          name: "View on GitHub",
+          url: "https://github.com/franklynux/terraform-wordpress-aws/blob/main/README.md"
+        }
+      ]
+    },
+    {
       image: require("./assets/images/ecommerce_platform_deployment_ecs_1.png"),
-      projectName: "Full-Stack E-commerce Platform with Containerized Deployment on AWS ECS",
+      projectName:
+        "Full-Stack E-commerce Platform with Containerized Deployment on AWS ECS",
       projectDesc:
         "Containerized microservices e-commerce app deployed on AWS ECS with automated CI/CD, secure networking, and scalable infrastructure.",
       footerLink: [
@@ -184,10 +197,11 @@ const bigProjects = {
         }
       ]
     },
-      {
+    {
       image: require("./assets/images/text-to-image-microservice.png"),
-      projectName: "AI-Powered Text-to-Image Microservice", 
-      projectDesc: "Scalable text-to-image generation microservice deployed on AWS App Runner with Terraform infrastructure, processing 1000+ daily requests with 95% success rate.",
+      projectName: "AI-Powered Text-to-Image Microservice",
+      projectDesc:
+        "Scalable text-to-image generation microservice deployed on AWS App Runner with Terraform infrastructure, processing 1000+ daily requests with 95% success rate.",
       footerLink: [
         {
           name: "View on GitHub",
@@ -195,9 +209,11 @@ const bigProjects = {
         }
       ]
     },
+
     {
       image: require("./assets/images/ecommerce_platform_microservice_architecture.png"),
-      projectName: "Cloud-Native E-commerce Platform with Microservices Architecture",
+      projectName:
+        "Cloud-Native E-commerce Platform with Microservices Architecture",
       projectDesc:
         "Production-ready, scalable e-commerce platform built with microservices architecture on Amazon EKS, featuring automated CI/CD, comprehensive monitoring, and cloud-native deployment.",
       footerLink: [

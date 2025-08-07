@@ -15,9 +15,7 @@ export default function DevOpsMethodologies() {
         <Fade left duration={1000}>
           <div className="skills-text-div">
             <h1
-              className={
-                isDark ? "dark-mode skills-heading" : "skills-heading"
-              }
+              className={isDark ? "dark-mode skills-heading" : "skills-heading"}
             >
               {devopsMethodologies.title}{" "}
             </h1>
