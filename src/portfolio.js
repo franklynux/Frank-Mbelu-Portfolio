@@ -142,7 +142,7 @@ const workExperiences = {
       role: "Cloud Architect",
       company: "Tranter IT",
       companylogo: require("./assets/images/tranter_it_infrastructure_services_logo.png"),
-      date: "Nov 2020 – June 2022",
+      date: "Nov 2020 – June 2023",
       desc: "Architected and deployed scalable cloud solutions for 10+ enterprise clients serving 100,000+ daily users, improving application performance by 40% and ensuring compliance through automated security audits.",
       descBullets: [
         "Designed multi-tier, fault-tolerant AWS architectures supporting daily active users with auto-scaling and disaster recovery capabilities.",
