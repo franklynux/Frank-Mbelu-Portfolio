@@ -222,6 +222,19 @@ const bigProjects = {
           url: "https://github.com/franklynux/ecommerce-platform-microservice-architecture/blob/main/README.md"
         }
       ]
+    },
+
+    {
+      image: require("./assets/images/multi_environment_kustomize.png"),
+      projectName: "Multi-Environment Application Deployment with Kustomize",
+      projectDesc:
+        "Kubernetes-native configuration management solution using Kustomize for dev/staging/prod environments with automated CI/CD, RBAC implementation, and GitOps workflow on AWS EKS.",
+      footerLink: [
+        {
+          name: "View on GitHub",
+          url: "https://github.com/franklynux/multi-environment-app-deployment-with-kustomize/blob/main/README.md"
+        }
+      ]
     }
   ],
   display: true
