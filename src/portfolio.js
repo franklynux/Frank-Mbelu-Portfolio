@@ -14,7 +14,7 @@ const illustration = {
 };
 
 const greeting = {
-  username: "$ Franklyn Mbelu",
+  username: "franklynmbelu@devops:~$ ",
   title: "Hi all, I'm Franklyn",
   subTitle: emoji(
     "A results-driven Cloud & DevOps Engineer ☁️🚀 with expertise in AWS, CI/CD, Infrastructure as Code, and automation. Passionate about building scalable, secure, and cost-optimized cloud solutions."
