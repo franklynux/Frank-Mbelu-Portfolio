@@ -131,7 +131,7 @@ const workExperiences = {
       role: "Cloud Administrator",
       company: "Phoenix Converge Solutions Limited",
       companylogo: require("./assets/images/Phoenix_Converge_Solutions_Limited_logo.png"),
-      date: "Jan 2024 – Feb 2025",
+      date: "Jan 2024 – June 2025",
       desc: "Managed AWS infrastructure for 20+ clients, implemented security best practices, and automated deployments using Terraform and GitHub Actions.",
       descBullets: [
         "Implemented AWS IAM best practices and cost optimization strategies, reducing infrastructure costs by 35% while maintaining enterprise-grade backup solutions.",
