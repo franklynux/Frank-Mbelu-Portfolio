@@ -274,7 +274,7 @@ const blogSection = {
   title: "Blogs",
   subtitle:
     "I occasionally write about DevOps automation, cloud architecture, and tooling.",
-  displayMediumBlogs: "false",
+  displayMediumBlogs: "true",
   blogs: [],
   display: true
 };
