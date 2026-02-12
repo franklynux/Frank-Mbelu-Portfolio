@@ -173,7 +173,7 @@ const bigProjects = {
   subtitle: "Some of the impactful solutions I've built or contributed to:",
   projects: [
     {
-      image: require("./assets/images/aws_django_ha_platform.svg"),
+      image: require("./assets/images/aws_django_ha_platform.png"),
       projectName: "Highly Available Django Platform on AWS",
       projectDesc:
         "Production-ready AWS DevOps platform for Django with Terraform and CloudFormation IaC, EKS + Helm deployment, and full observability using Prometheus and Grafana.",
