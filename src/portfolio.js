@@ -172,7 +172,6 @@ const bigProjects = {
   title: "Highlighted Projects",
   subtitle: "Some of the impactful solutions I've built or contributed to:",
   projects: [
-    
     {
       image: require("./assets/images/aws_django_ha_platform.svg"),
       projectName: "Highly Available Django Platform on AWS",
@@ -350,6 +349,3 @@ export {
   resumeSection,
   devopsMethodologies
 };
-
-
-
