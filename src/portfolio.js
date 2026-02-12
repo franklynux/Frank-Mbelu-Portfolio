@@ -172,6 +172,19 @@ const bigProjects = {
   title: "Highlighted Projects",
   subtitle: "Some of the impactful solutions I've built or contributed to:",
   projects: [
+    
+    {
+      image: require("./assets/images/aws_django_ha_platform.svg"),
+      projectName: "Highly Available Django Platform on AWS",
+      projectDesc:
+        "Production-ready AWS DevOps platform for Django with Terraform and CloudFormation IaC, EKS + Helm deployment, and full observability using Prometheus and Grafana.",
+      footerLink: [
+        {
+          name: "View on GitHub",
+          url: "https://github.com/franklynux/aws-django-ha-platform/blob/main/README.md"
+        }
+      ]
+    },
     {
       image: require("./assets/images/terraform_infrastructure_diagram.png"),
       projectName: "Automated WordPress Deployment on AWS using Terraform",
@@ -337,3 +350,6 @@ export {
   resumeSection,
   devopsMethodologies
 };
+
+
+
