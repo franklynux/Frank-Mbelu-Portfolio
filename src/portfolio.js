@@ -230,7 +230,7 @@ const bigProjects = {
         "Production-ready, scalable e-commerce platform built with microservices architecture on Amazon EKS, featuring automated CI/CD, comprehensive monitoring, and cloud-native deployment.",
       footerLink: [
         {
-          
+
           name: "View on GitHub",
           url: "https://github.com/franklynux/ecommerce-platform-microservice-architecture/blob/main/README.md"
         }
@@ -277,6 +277,13 @@ const achievementSection = {
       subtitle: "Valid: May 2024 – May 2027",
       image: require("./assets/images/aws-certified-sysops-administrator-associate.png"),
       imageAlt: "AWS Logo",
+      footerLink: []
+    },
+    {
+      title: "DevOps Advanced Program",
+      subtitle: "Darey.io",
+      image: require("./assets/images/DevOps_Advanced_Program_-_Darey.io.png"),
+      imageAlt: "Darey.io Logo",
       footerLink: []
     }
   ],
