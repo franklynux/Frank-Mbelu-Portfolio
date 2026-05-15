@@ -281,7 +281,7 @@ const achievementSection = {
     },
     {
       title: "DevOps Advanced Program",
-      subtitle: "Darey.io",
+      subtitle: "Completed: Jan 2023",
       image: require("./assets/images/DevOps_Advanced_Program_-_Darey.io.png"),
       imageAlt: "Darey.io Logo",
       footerLink: []
