@@ -153,7 +153,7 @@ const workExperiences = {
       role: "IT Personnel (Helpdesk)",
       company: "Tranter IT",
       companylogo: require("./assets/images/tranter_it_infrastructure_services_logo.png"),
-      date: "June 2017- Mar 2020",
+      date: "Dec 2018- Mar 2020",
       desc: "Provided technical support and troubleshooting for end-users, ensuring smooth IT operations and rapid issue resolution across the organization.",
       descBullets: [
         "Resolved over 500+ hardware, software, and network issues, maintaining high user satisfaction and minimal downtime.",
