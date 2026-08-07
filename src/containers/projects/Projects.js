@@ -31,7 +31,11 @@ export default function Projects() {
             response.data.user &&
             response.data.user.pinnedItems
           ) {
-            setrepoFunction(response.data.user.pinnedItems.edges);
+            setrepoFunction(
+              response.data.user.pinnedItems.edges.filter(
+                e => e && e.node && e.node.id
+              )
+            );
           } else {
             throw new Error("Invalid response structure");
           }
@@ -58,16 +62,9 @@ export default function Projects() {
         <div className="main" id="opensource">
           <h1 className="project-title">Open Source Projects</h1>
           <div className="repo-cards-div-main">
-            {repo.map((v, i) => {
-              if (!v) {
-                console.error(
-                  `Github Object for repository number : ${i} is undefined`
-                );
-              }
-              return (
-                <GithubRepoCard repo={v} key={v.node.id} isDark={isDark} />
-              );
-            })}
+            {repo.map((v, i) => (
+              <GithubRepoCard repo={v} key={v.node.id} isDark={isDark} />
+            ))}
           </div>
           <Button
             text={"More Projects"}

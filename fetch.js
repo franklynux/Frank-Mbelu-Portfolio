@@ -79,10 +79,28 @@ if (USE_GITHUB_DATA === "true") {
       data += d;
     });
     res.on("end", () => {
-      fs.writeFile("./public/profile.json", data, function (err) {
-        if (err) return console.log(err);
-        console.log("saved file to public/profile.json");
-      });
+      try {
+        const parsed = JSON.parse(data);
+        const edges = parsed?.data?.user?.pinnedItems?.edges;
+        if (edges) {
+          parsed.data.user.pinnedItems.edges = edges.filter(
+            e => e && e.node && e.node.id
+          );
+        }
+        fs.writeFile(
+          "./public/profile.json",
+          JSON.stringify(parsed),
+          function (err) {
+            if (err) return console.log(err);
+            console.log("saved file to public/profile.json");
+          }
+        );
+      } catch (e) {
+        fs.writeFile("./public/profile.json", data, function (err) {
+          if (err) return console.log(err);
+          console.log("saved file to public/profile.json");
+        });
+      }
     });
   });
 
