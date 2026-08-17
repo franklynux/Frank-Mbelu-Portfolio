@@ -128,6 +128,17 @@ const workExperiences = {
   display: true,
   experience: [
     {
+      role: "DevOps Engineer",
+      company: "Xterns AI",
+      companylogo: require("./assets/images/xterns_ai_logo.png"),
+      date: "Nov 2025 – Present",
+      desc: "Building and maintaining multi-region AWS infrastructure for a fintech product, with a focus on GitOps, security, and observability.",
+      descBullets: [
+        "Provisioned multi-region fintech infrastructure on AWS (EKS, VPC, RDS, Redis, WAF, API Gateway) with Terraform and GitOps workflows using Argo CD and Argo Rollouts.",
+        "Built secure CI/CD pipelines with GitHub Actions, OIDC authentication, and Trivy scanning for PCI DSS compliance, eliminating long-lived credentials from the pipeline."
+      ]
+    },
+    {
       role: "Cloud Administrator",
       company: "Phoenix Converge Solutions Limited",
       companylogo: require("./assets/images/Phoenix_Converge_Solutions_Limited_logo.png"),
