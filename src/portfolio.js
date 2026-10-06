@@ -56,7 +56,8 @@ const skillsSection = {
 
   softwareSkills: [
     { skillName: "aws", fontAwesomeClassname: "fab fa-aws" },
-    { skillName: "gcp", fontAwesomeClassname: "fab fa-google-cloud" },
+    { skillName: "gcp", fontAwesomeClassname: "devicon-googlecloud-plain" },
+    { skillName: "azure", fontAwesomeClassname: "devicon-azure-plain" },
     { skillName: "terraform", fontAwesomeClassname: "fas fa-layer-group" },
     { skillName: "docker", fontAwesomeClassname: "fab fa-docker" },
     { skillName: "kubernetes", fontAwesomeClassname: "fas fa-dharmachakra" },
