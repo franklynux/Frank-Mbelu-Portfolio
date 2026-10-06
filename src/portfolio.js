@@ -55,18 +55,19 @@ const skillsSection = {
   ],
 
   softwareSkills: [
-    {skillName: "aws", fontAwesomeClassname: "fab fa-aws"},
-    {skillName: "terraform", fontAwesomeClassname: "fas fa-layer-group"},
-    {skillName: "docker", fontAwesomeClassname: "fab fa-docker"},
-    {skillName: "kubernetes", fontAwesomeClassname: "fas fa-dharmachakra"},
-    {skillName: "jenkins", fontAwesomeClassname: "fab fa-jenkins"},
-    {skillName: "ansible", fontAwesomeClassname: "fas fa-robot"},
-    {skillName: "prometheus", fontAwesomeClassname: "fas fa-fire"},
-    {skillName: "grafana", fontAwesomeClassname: "fas fa-tachometer-alt"},
-    {skillName: "python", fontAwesomeClassname: "fab fa-python"},
-    {skillName: "linux", fontAwesomeClassname: "fab fa-linux"},
-    {skillName: "github", fontAwesomeClassname: "fab fa-github"},
-    {skillName: "bash", fontAwesomeClassname: "fas fa-terminal"}
+    { skillName: "aws", fontAwesomeClassname: "fab fa-aws" },
+    { skillName: "gcp", fontAwesomeClassname: "fab fa-google-cloud" },
+    { skillName: "terraform", fontAwesomeClassname: "fas fa-layer-group" },
+    { skillName: "docker", fontAwesomeClassname: "fab fa-docker" },
+    { skillName: "kubernetes", fontAwesomeClassname: "fas fa-dharmachakra" },
+    { skillName: "jenkins", fontAwesomeClassname: "fab fa-jenkins" },
+    { skillName: "ansible", fontAwesomeClassname: "fas fa-robot" },
+    { skillName: "prometheus", fontAwesomeClassname: "fas fa-fire" },
+    { skillName: "grafana", fontAwesomeClassname: "fas fa-tachometer-alt" },
+    { skillName: "python", fontAwesomeClassname: "fab fa-python" },
+    { skillName: "linux", fontAwesomeClassname: "fab fa-linux" },
+    { skillName: "github", fontAwesomeClassname: "fab fa-github" },
+    { skillName: "bash", fontAwesomeClassname: "fas fa-terminal" }
   ],
   display: true
 };
@@ -111,15 +112,15 @@ const educationInfo = {
 const techStack = {
   viewSkillBars: true,
   experience: [
-    {Stack: "Infrastructure as Code", progressPercentage: "85%"},
-    {Stack: "Cloud Architecture", progressPercentage: "90%"},
-    {Stack: "CI/CD Automation", progressPercentage: "85%"},
-    {Stack: "Containerization & Orchestration", progressPercentage: "80%"},
-    {Stack: "Monitoring & Logging", progressPercentage: "75%"},
-    {Stack: "Cloud Security & Governance", progressPercentage: "70%"},
-    {Stack: "Automation & Scripting", progressPercentage: "80%"},
-    {Stack: "Cloud Networking & Load Balancing", progressPercentage: "70%"},
-    {Stack: "DevOps & Agile Practices", progressPercentage: "80%"}
+    { Stack: "Infrastructure as Code", progressPercentage: "85%" },
+    { Stack: "Cloud Architecture", progressPercentage: "90%" },
+    { Stack: "CI/CD Automation", progressPercentage: "85%" },
+    { Stack: "Containerization & Orchestration", progressPercentage: "80%" },
+    { Stack: "Monitoring & Logging", progressPercentage: "75%" },
+    { Stack: "Cloud Security & Governance", progressPercentage: "70%" },
+    { Stack: "Automation & Scripting", progressPercentage: "80%" },
+    { Stack: "Cloud Networking & Load Balancing", progressPercentage: "70%" },
+    { Stack: "DevOps & Agile Practices", progressPercentage: "80%" }
   ],
   displayCodersrank: false
 };
@@ -183,6 +184,22 @@ const bigProjects = {
   title: "Highlighted Projects",
   subtitle: "Some of the impactful solutions I've built or contributed to:",
   projects: [
+    {
+      image: require("./assets/images/fleetform_architecture.jpg"),
+      projectName: "Fleetform: Multi-Cluster GitOps Platform on AWS EKS",
+      projectDesc:
+        "Hub-and-spoke EKS fleet provisioned with Terraform (multi-VPC, reusable modules) and delivered via Argo CD ApplicationSets with layered Helm values for self-service app onboarding by pull request.",
+      footerLink: [
+        {
+          name: "Infrastructure (Terraform)",
+          url: "https://github.com/franklynux/fleetform-infra"
+        },
+        {
+          name: "GitOps Apps (Argo CD)",
+          url: "https://github.com/franklynux/fleetform-apps"
+        }
+      ]
+    },
     {
       image: require("./assets/images/aws_django_ha_platform.png"),
       projectName: "Highly Available Django Platform on AWS",
@@ -256,6 +273,19 @@ const bigProjects = {
         {
           name: "View on GitHub",
           url: "https://github.com/franklynux/multi-environment-app-deployment-with-kustomize/blob/main/README.md"
+        }
+      ]
+    },
+    {
+      image: require("./assets/images/finzla_ecs_fargate.jpg"),
+      projectName:
+        "Containerized Python Service on AWS ECS Fargate with Terraform & CI/CD",
+      projectDesc:
+        "Python HTTP service deployed on ECS Fargate behind an ALB using modular Terraform (VPC, ECR, ALB, ECS, CloudWatch alarms) and a GitHub Actions pipeline. Originally built as a cloud engineering technical assessment.",
+      footerLink: [
+        {
+          name: "View on GitHub",
+          url: "https://github.com/franklynux/aws-ecs-fargate-platform"
         }
       ]
     }
