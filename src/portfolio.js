@@ -1,4 +1,4 @@
-/* Franklyn Mbelu's DevOps Portfolio Configuration */
+/* Franklyn Mbelu's Cloud, DevOps & Platform Engineering Portfolio Configuration */
 
 import emoji from "react-easy-emoji";
 import splashAnimation from "./assets/lottie/splashAnimation";
@@ -15,9 +15,9 @@ const illustration = {
 
 const greeting = {
   username: "frank@devops:~$",
-  title: "Hi all, I'm Franklyn Mbelu 👋",
+  title: "Hi all, I'm Franklyn Mbelu",
   subTitle: emoji(
-    "A results-driven Cloud & DevOps Engineer ☁️🚀 with expertise in AWS, CI/CD, Infrastructure as Code, and automation. Passionate about building scalable, secure, and cost-optimized cloud solutions."
+    "Cloud, DevOps and Platform Engineer ☁️🚀. I build and run infrastructure on AWS with Terraform, Kubernetes and GitOps, and I give development teams the pipelines and self-service tooling they need to ship safely."
   ),
   resumeLink:
     "https://drive.google.com/file/d/1qpFBkSzFCraNY7jE2zGMRXzbxmIui8vj/view?usp=sharing",
@@ -35,22 +35,22 @@ const socialMediaLinks = {
 const skillsSection = {
   title: "What I do",
   subTitle:
-    "CLOUD & DEVOPS ENGINEER with AWS Expertise | Focused on IaC, CI/CD & Container Orchestration",
+    "CLOUD, DEVOPS & PLATFORM ENGINEER | AWS, KUBERNETES, TERRAFORM, GITOPS",
   skills: [
     emoji(
-      "⚡ Architect and implement enterprise-grade, multi-account cloud infrastructures on AWS, Azure and GCP, reducing operational costs by 30-40%"
+      "⚡ Design and run multi-account cloud environments on AWS, my primary platform, with hands-on experience in Azure (AKS, Blob Storage) and GCP (GKE, Cloud Run)"
     ),
     emoji(
-      "⚡ Automate infrastructure provisioning and application deployments using Terraform, CloudFormation, and GitOps, achieving 99.9% deployment success rates"
+      "⚡ Provision infrastructure with Terraform and CloudFormation, using reusable modules and pull-request-based changes"
     ),
     emoji(
-      "⚡ Deploy and orchestrate containerized applications on AWS ECS, EKS, Azure AKS, GKE with auto-scaling and zero-downtime deployment strategies"
+      "⚡ Build internal platforms on Kubernetes (Amazon EKS) with Argo CD, Helm and Kustomize so teams can onboard and deploy services on their own"
     ),
     emoji(
-      "⚡ Build comprehensive CI/CD pipelines with Jenkins, GitHub Actions, and cloud-native tools, reducing deployment times by 50-60%"
+      "⚡ Build CI/CD pipelines with GitHub Actions and Jenkins, including OIDC authentication, image scanning and automated rollbacks"
     ),
     emoji(
-      "⚡ Implement monitoring, logging, and observability solutions using CloudWatch, Prometheus, Grafana, and ELK stack for proactive system management"
+      "⚡ Set up monitoring, logging and alerting with Prometheus, Grafana, CloudWatch and the ELK stack"
     )
   ],
 
@@ -74,23 +74,23 @@ const skillsSection = {
 };
 
 const devopsMethodologies = {
-  title: "DevOps Practices & Methodologies",
-  subTitle: "PROVEN FRAMEWORKS AND BEST PRACTICES I IMPLEMENT",
+  title: "How I Work",
+  subTitle: "THE PRACTICES BEHIND MY CLOUD AND PLATFORM WORK",
   skills: [
     emoji(
-      "⚡ Infrastructure as Code (IaC) with Terraform and AWS CloudFormation for version-controlled, repeatable infrastructure deployments"
+      "⚡ Infrastructure as Code: every environment is defined in Terraform or CloudFormation, version-controlled and reproducible"
     ),
     emoji(
-      "⚡ GitOps workflows with automated deployments, rollbacks, and environment promotion strategies using GitHub Actions and ArgoCD"
+      "⚡ GitOps: Git is the source of truth, and Argo CD handles deployments, rollbacks and promotion between environments"
     ),
     emoji(
-      "⚡ Site Reliability Engineering (SRE) principles with comprehensive monitoring, alerting, and incident response procedures"
+      "⚡ Platform engineering: golden paths, reusable templates and self-service onboarding that reduce the load on developers"
     ),
     emoji(
-      "⚡ Agile/Scrum methodologies with continuous integration, automated testing, and collaborative development practices"
+      "⚡ Reliability: SLO-based monitoring, actionable alerts and clear incident runbooks"
     ),
     emoji(
-      "⚡ Security-first approach with automated compliance scanning, secrets management, and zero-trust network architectures"
+      "⚡ Security built into the pipeline: least-privilege IAM, secrets management, image scanning and compliance checks"
     )
   ],
   display: true
@@ -121,7 +121,7 @@ const techStack = {
     { Stack: "Cloud Security & Governance", progressPercentage: "70%" },
     { Stack: "Automation & Scripting", progressPercentage: "80%" },
     { Stack: "Cloud Networking & Load Balancing", progressPercentage: "70%" },
-    { Stack: "DevOps & Agile Practices", progressPercentage: "80%" }
+    { Stack: "Platform Engineering & GitOps", progressPercentage: "80%" }
   ],
   displayCodersrank: false
 };
@@ -134,10 +134,10 @@ const workExperiences = {
       company: "Xterns AI",
       companylogo: require("./assets/images/xterns_ai_logo.png"),
       date: "Nov 2025 – Present",
-      desc: "Building and maintaining multi-region AWS infrastructure for a fintech product, with a focus on GitOps, security, and observability.",
+      desc: "I build and maintain multi-region AWS infrastructure for a fintech product, with a focus on GitOps, security and observability.",
       descBullets: [
-        "Provisioned multi-region fintech infrastructure on AWS (EKS, VPC, RDS, Redis, WAF, API Gateway) with Terraform and GitOps workflows using Argo CD and Argo Rollouts.",
-        "Built secure CI/CD pipelines with GitHub Actions, OIDC authentication, and Trivy scanning for PCI DSS compliance, eliminating long-lived credentials from the pipeline."
+        "Provisioned multi-region infrastructure on AWS (EKS, VPC, RDS, Redis, WAF, API Gateway) with Terraform, and set up GitOps delivery with Argo CD and Argo Rollouts.",
+        "Built CI/CD pipelines in GitHub Actions with OIDC authentication and Trivy image scanning to meet PCI DSS requirements, removing long-lived AWS credentials from the pipeline."
       ]
     },
     {
@@ -145,10 +145,10 @@ const workExperiences = {
       company: "Phoenix Converge Solutions Limited",
       companylogo: require("./assets/images/Phoenix_Converge_Solutions_Limited_logo.png"),
       date: "Jan 2024 – Nov 2025",
-      desc: "Managed AWS infrastructure for 20+ clients, implemented security best practices, and automated deployments using Terraform and GitHub Actions.",
+      desc: "Managed AWS infrastructure for more than 20 clients, tightened security, and automated deployments with Terraform and GitHub Actions.",
       descBullets: [
-        "Implemented AWS IAM best practices and cost optimization strategies, reducing infrastructure costs by 35% while maintaining enterprise-grade backup solutions.",
-        "Led 12+ cloud migration projects with zero downtime, maintaining 99.99% uptime SLA and improving deployment speed by 60%."
+        "Applied least-privilege IAM and cost optimization across client accounts, cutting infrastructure costs by 35% without reducing backup coverage.",
+        "Led more than 12 cloud migrations with zero downtime, held a 99.99% uptime SLA, and made deployments 60% faster."
       ]
     },
     {
@@ -156,21 +156,21 @@ const workExperiences = {
       company: "Tranter IT",
       companylogo: require("./assets/images/tranter_it_infrastructure_services_logo.png"),
       date: "Nov 2020 – June 2023",
-      desc: "Architected and deployed scalable cloud solutions for 10+ enterprise clients serving 100,000+ daily users, improving application performance by 40% and ensuring compliance through automated security audits.",
+      desc: "Designed and deployed cloud environments for more than 10 enterprise clients with over 100,000 combined daily users. Improved application performance by 40% and automated security audits for compliance.",
       descBullets: [
-        "Designed multi-tier, fault-tolerant AWS architectures supporting daily active users with auto-scaling and disaster recovery capabilities.",
-        "Implemented comprehensive CI/CD pipelines using Jenkins and GitHub Actions, reducing deployment time by 50% and achieving 99.5% deployment success rate."
+        "Designed multi-tier, fault-tolerant AWS architectures with auto-scaling and disaster recovery.",
+        "Built CI/CD pipelines with Jenkins and GitHub Actions, cutting deployment time by 50% and reaching a 99.5% deployment success rate."
       ]
     },
     {
       role: "IT Personnel (Helpdesk)",
       company: "Tranter IT",
       companylogo: require("./assets/images/tranter_it_infrastructure_services_logo.png"),
-      date: "Dec 2018- Mar 2020",
-      desc: "Provided technical support and troubleshooting for end-users, ensuring smooth IT operations and rapid issue resolution across the organization.",
+      date: "Dec 2018 – Mar 2020",
+      desc: "Provided technical support to staff across the organization, troubleshooting hardware, software and network problems.",
       descBullets: [
-        "Resolved over 500+ hardware, software, and network issues, maintaining high user satisfaction and minimal downtime.",
-        "Trained staff on IT best practices and supported onboarding of new employees with system setup and access management."
+        "Resolved more than 500 hardware, software and network issues.",
+        "Trained staff on IT security basics and set up systems and access for new employees."
       ]
     }
   ]
@@ -182,14 +182,14 @@ const openSource = {
 };
 
 const bigProjects = {
-  title: "Highlighted Projects",
-  subtitle: "Some of the impactful solutions I've built or contributed to:",
+  title: "Projects",
+  subtitle: "Infrastructure and platform projects I have built, with source code and architecture notes.",
   projects: [
     {
       image: require("./assets/images/fleetform_architecture.jpg"),
       projectName: "Fleetform: Multi-Cluster GitOps Platform on AWS EKS",
       projectDesc:
-        "Hub-and-spoke EKS fleet provisioned with Terraform (multi-VPC, reusable modules) and delivered via Argo CD ApplicationSets with layered Helm values for self-service app onboarding by pull request.",
+        "A hub-and-spoke fleet of EKS clusters provisioned with Terraform (multi-VPC, reusable modules). Argo CD ApplicationSets and layered Helm values let teams onboard a new app with a single pull request.",
       footerLink: [
         {
           name: "Infrastructure (Terraform)",
@@ -205,7 +205,7 @@ const bigProjects = {
       image: require("./assets/images/aws_django_ha_platform.png"),
       projectName: "Highly Available Django Platform on AWS",
       projectDesc:
-        "Production-ready AWS DevOps platform for Django with Terraform and CloudFormation IaC, EKS + Helm deployment, and full observability using Prometheus and Grafana.",
+        "A highly available Django deployment on AWS, provisioned with Terraform and CloudFormation, deployed to EKS with Helm, and monitored with Prometheus and Grafana.",
       footerLink: [
         {
           name: "View on GitHub",
@@ -217,7 +217,7 @@ const bigProjects = {
       image: require("./assets/images/terraform_infrastructure_diagram.png"),
       projectName: "Automated WordPress Deployment on AWS using Terraform",
       projectDesc:
-        "Enterprise-grade WordPress platform with modular Terraform architecture, featuring auto-scaling, load balancing, RDS database, EFS storage, and comprehensive monitoring on AWS.",
+        "WordPress on AWS built with modular Terraform: an Auto Scaling group behind a load balancer, RDS for the database, EFS for shared storage, and CloudWatch monitoring.",
       footerLink: [
         {
           name: "View on GitHub",
@@ -230,7 +230,7 @@ const bigProjects = {
       projectName:
         "Full-Stack E-commerce Platform with Containerized Deployment on AWS ECS",
       projectDesc:
-        "Containerized microservices e-commerce app deployed on AWS ECS with automated CI/CD, secure networking, and scalable infrastructure.",
+        "A containerized e-commerce app split into microservices and deployed on AWS ECS, with a CI/CD pipeline, private networking and auto-scaling.",
       footerLink: [
         {
           name: "View on GitHub",
@@ -242,7 +242,7 @@ const bigProjects = {
       image: require("./assets/images/text-to-image-microservice.png"),
       projectName: "AI-Powered Text-to-Image Microservice",
       projectDesc:
-        "Scalable text-to-image generation microservice deployed on AWS App Runner with Terraform infrastructure, processing 1000+ daily requests with 95% success rate.",
+        "A text-to-image microservice running on AWS App Runner, provisioned with Terraform. It handles over 1,000 requests a day with a 95% success rate.",
       footerLink: [
         {
           name: "View on GitHub",
@@ -256,7 +256,7 @@ const bigProjects = {
       projectName:
         "Cloud-Native E-commerce Platform with Microservices Architecture",
       projectDesc:
-        "Production-ready, scalable e-commerce platform built with microservices architecture on Amazon EKS, featuring automated CI/CD, comprehensive monitoring, and cloud-native deployment.",
+        "An e-commerce platform built as microservices on Amazon EKS, with automated CI/CD and Prometheus/Grafana monitoring.",
       footerLink: [
         {
           name: "View on GitHub",
@@ -269,7 +269,7 @@ const bigProjects = {
       image: require("./assets/images/multi_environment_kustomize.png"),
       projectName: "Multi-Environment Application Deployment with Kustomize",
       projectDesc:
-        "Kubernetes-native configuration management solution using Kustomize for dev/staging/prod environments with automated CI/CD, RBAC implementation, and GitOps workflow on AWS EKS.",
+        "Kustomize bases and overlays for dev, staging and prod on AWS EKS, with RBAC, a CI/CD pipeline and GitOps-driven deployments.",
       footerLink: [
         {
           name: "View on GitHub",
@@ -282,7 +282,7 @@ const bigProjects = {
       projectName:
         "Containerized Python Service on AWS ECS Fargate with Terraform & CI/CD",
       projectDesc:
-        "Python HTTP service deployed on ECS Fargate behind an ALB using modular Terraform (VPC, ECR, ALB, ECS, CloudWatch alarms) and a GitHub Actions pipeline. Originally built as a cloud engineering technical assessment.",
+        "A Python HTTP service on ECS Fargate behind an ALB, built with modular Terraform (VPC, ECR, ALB, ECS, CloudWatch alarms) and deployed through GitHub Actions. Originally built for a cloud engineering technical assessment.",
       footerLink: [
         {
           name: "View on GitHub",
@@ -295,9 +295,9 @@ const bigProjects = {
 };
 
 const achievementSection = {
-  title: emoji("Achievements And Certifications 🏆"),
+  title: emoji("Certifications 🏆"),
   subtitle:
-    "AWS Certifications and hands-on accomplishments in cloud engineering.",
+    "AWS certifications and DevOps training.",
   achievementsCards: [
     {
       title: "AWS Certified Solutions Architect - Associate",
@@ -334,16 +334,16 @@ const achievementSection = {
 const blogSection = {
   title: "Blogs",
   subtitle:
-    "I occasionally write about DevOps automation, cloud architecture, and tooling.",
+    "I write about cloud infrastructure, DevOps automation and platform tooling.",
   displayMediumBlogs: "true",
   blogs: [],
   display: true
 };
 
 const talkSection = {
-  title: "TALKS",
+  title: "Talks",
   subtitle: emoji(
-    "Always open to sharing my knowledge and speaking at events."
+    "Talks and presentations I have given."
   ),
   talks: [],
   display: false
@@ -358,14 +358,14 @@ const podcastSection = {
 
 const resumeSection = {
   title: "Resume",
-  subtitle: "Feel free to download my resume",
+  subtitle: "Download my resume.",
   display: true
 };
 
 const contactInfo = {
   title: emoji("Contact Me ☎️"),
   subtitle:
-    "Let’s connect — whether you have a project or just want to say hi.",
+    "Open to Cloud, DevOps and Platform Engineering roles and contract work. Send me an email or give me a call.",
   number: "+234 703 100 8161",
   email_address: "franklynmbelu@gmail.com"
 };
