@@ -38,13 +38,13 @@ const skillsSection = {
     "CLOUD & DEVOPS ENGINEER with AWS Expertise | Focused on IaC, CI/CD & Container Orchestration",
   skills: [
     emoji(
-      "⚡ Architect and implement enterprise-grade, multi-account cloud infrastructures on AWS and Azure, reducing operational costs by 30-40%"
+      "⚡ Architect and implement enterprise-grade, multi-account cloud infrastructures on AWS, Azure and GCP, reducing operational costs by 30-40%"
     ),
     emoji(
       "⚡ Automate infrastructure provisioning and application deployments using Terraform, CloudFormation, and GitOps, achieving 99.9% deployment success rates"
     ),
     emoji(
-      "⚡ Deploy and orchestrate containerized applications on AWS ECS, EKS, and Azure AKS with auto-scaling and zero-downtime deployment strategies"
+      "⚡ Deploy and orchestrate containerized applications on AWS ECS, EKS, Azure AKS, GKE with auto-scaling and zero-downtime deployment strategies"
     ),
     emoji(
       "⚡ Build comprehensive CI/CD pipelines with Jenkins, GitHub Actions, and cloud-native tools, reducing deployment times by 50-60%"
