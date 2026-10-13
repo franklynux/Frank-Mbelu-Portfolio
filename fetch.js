@@ -4,37 +4,68 @@ const process = require("process");
 require("dotenv").config();
 
 const GITHUB_TOKEN = process.env.REACT_APP_GITHUB_TOKEN;
-const GITHUB_USERNAME = process.env.GITHUB_USERNAME;
-const USE_GITHUB_DATA = process.env.USE_GITHUB_DATA;
-const MEDIUM_USERNAME = process.env.MEDIUM_USERNAME;
+const GITHUB_USERNAME = process.env.GITHUB_USERNAME || "franklynux";
+const USE_GITHUB_DATA = process.env.USE_GITHUB_DATA || "true";
+const MEDIUM_USERNAME = process.env.MEDIUM_USERNAME || "franklynux";
 
-const ERR = {
-  noUserName:
-    "Github Username was found to be undefined. Please set all relevant environment variables.",
-  requestFailed:
-    "The request to GitHub didn't succeed. Check if GitHub token in your .env file is correct.",
-  requestFailedMedium:
-    "The request to Medium didn't succeed. Check if Medium username in your .env file is correct."
+const fallbackProfile = {
+  data: {
+    user: {
+      name: "Franklyn Mbelu",
+      bio: "Cloud, DevOps and Platform Engineer",
+      avatarUrl:
+        "https://avatars.githubusercontent.com/u/170720658?u=731809d5d7282754bed7a0732b9e0b0284e60a7c&v=4",
+      location: null,
+      pinnedItems: {
+        totalCount: 1,
+        edges: [
+          {
+            node: {
+              name: "fleetguard-operator",
+              description: "Generic TTL Cleanup for Kubernetes",
+              forkCount: 0,
+              stargazers: { totalCount: 0 },
+              url: "https://github.com/franklynux/fleetguard-operator",
+              id: "R_kgDOM8tq-A",
+              diskUsage: 50,
+              primaryLanguage: { name: "Go", color: "#00ADD8" }
+            }
+          }
+        ]
+      }
+    }
+  }
 };
 
-if (USE_GITHUB_DATA === "true") {
-  if (GITHUB_USERNAME === undefined) {
-    throw new Error(ERR.noUserName);
+function ensureFallbackProfile() {
+  if (!fs.existsSync("./public/profile.json")) {
+    fs.writeFileSync(
+      "./public/profile.json",
+      JSON.stringify(fallbackProfile, null, 2)
+    );
+    console.log("Created fallback public/profile.json");
   }
+}
 
+function ensureFallbackBlogs() {
+  if (!fs.existsSync("./public/blogs.json")) {
+    fs.writeFileSync(
+      "./public/blogs.json",
+      JSON.stringify({ items: [] }, null, 2)
+    );
+    console.log("Created fallback public/blogs.json");
+  }
+}
+
+if (USE_GITHUB_DATA === "true") {
   if (!GITHUB_TOKEN) {
-    if (fs.existsSync("./public/profile.json")) {
-      console.warn(
-        "REACT_APP_GITHUB_TOKEN is not set. Keeping existing public/profile.json fallback."
-      );
-    } else {
-      console.warn(
-        "REACT_APP_GITHUB_TOKEN is not set and no fallback public/profile.json was found."
-      );
-    }
+    console.warn(
+      "REACT_APP_GITHUB_TOKEN is not set or empty. Proceeding with fallback profile data."
+    );
+    ensureFallbackProfile();
   } else {
     console.log(`Fetching profile data for ${GITHUB_USERNAME}`);
-    var data = JSON.stringify({
+    const queryData = JSON.stringify({
       query: `
 {
   user(login:"${GITHUB_USERNAME}") { 
@@ -68,6 +99,7 @@ if (USE_GITHUB_DATA === "true") {
 }
 `
     });
+
     const default_options = {
       hostname: "api.github.com",
       path: "/graphql",
@@ -84,30 +116,29 @@ if (USE_GITHUB_DATA === "true") {
 
       console.log(`statusCode: ${res.statusCode}`);
       if (res.statusCode !== 200) {
-        if (fs.existsSync("./public/profile.json")) {
-          console.warn(
-            `GitHub API returned status ${res.statusCode}. Keeping existing public/profile.json fallback.`
-          );
-          return;
-        }
-        throw new Error(ERR.requestFailed);
+        console.warn(
+          `GitHub API returned status ${res.statusCode}. Missing or invalid token. Keeping fallback profile data.`
+        );
+        ensureFallbackProfile();
+        res.resume();
+        return;
       }
 
       res.on("data", d => {
         responseBody += d;
       });
+
       res.on("end", () => {
         try {
           const parsed = JSON.parse(responseBody);
           if (parsed.errors && !parsed.data?.user) {
             console.warn(
               "GitHub GraphQL returned errors:",
-              JSON.stringify(parsed.errors)
+              JSON.stringify(parsed.errors),
+              "Keeping fallback profile data."
             );
-            if (fs.existsSync("./public/profile.json")) {
-              console.warn("Keeping existing public/profile.json fallback.");
-              return;
-            }
+            ensureFallbackProfile();
+            return;
           }
           const edges = parsed?.data?.user?.pinnedItems?.edges;
           if (edges) {
@@ -115,38 +146,32 @@ if (USE_GITHUB_DATA === "true") {
               e => e && e.node && e.node.id
             );
           }
-          fs.writeFile(
-            "./public/profile.json",
-            JSON.stringify(parsed),
-            function (err) {
-              if (err) return console.log(err);
-              console.log("saved file to public/profile.json");
-            }
-          );
+          fs.writeFileSync("./public/profile.json", JSON.stringify(parsed));
+          console.log("saved file to public/profile.json");
         } catch (e) {
-          fs.writeFile("./public/profile.json", responseBody, function (err) {
-            if (err) return console.log(err);
-            console.log("saved file to public/profile.json");
-          });
+          console.warn(
+            "Failed to parse GitHub API response, keeping fallback profile data:",
+            e.message
+          );
+          ensureFallbackProfile();
         }
       });
     });
 
     req.on("error", error => {
-      if (fs.existsSync("./public/profile.json")) {
-        console.warn(
-          "GitHub API request failed with error:",
-          error.message,
-          "Keeping existing public/profile.json fallback."
-        );
-        return;
-      }
-      throw error;
+      console.warn(
+        "GitHub API request failed with network error:",
+        error.message,
+        "Keeping fallback profile data."
+      );
+      ensureFallbackProfile();
     });
 
-    req.write(data);
+    req.write(queryData);
     req.end();
   }
+} else {
+  ensureFallbackProfile();
 }
 
 if (MEDIUM_USERNAME !== undefined) {
@@ -168,23 +193,17 @@ if (MEDIUM_USERNAME !== undefined) {
       }));
 
       const result = JSON.stringify({ items: items });
-      fs.writeFile("./public/blogs.json", result, function (err) {
-        if (err) return console.log(err);
-        console.log("saved file to public/blogs.json");
-      });
+      fs.writeFileSync("./public/blogs.json", result);
+      console.log("saved file to public/blogs.json");
     })
     .catch(error => {
-      if (fs.existsSync("./public/blogs.json")) {
-        console.warn(
-          "Medium RSS feed request failed:",
-          error.message,
-          "Keeping existing public/blogs.json fallback."
-        );
-        return;
-      }
-      console.error(
-        "The request to Medium didn't succeed. Check if Medium username in your .env file is correct."
+      console.warn(
+        "Medium RSS feed request failed:",
+        error.message,
+        "Keeping fallback blogs data."
       );
-      throw error;
+      ensureFallbackBlogs();
     });
+} else {
+  ensureFallbackBlogs();
 }
