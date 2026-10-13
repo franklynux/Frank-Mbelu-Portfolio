@@ -82,6 +82,40 @@
   transition: 0.2s ease-in;
 }
 
+.tech-stack-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.4rem;
+  margin: 0.75rem 0 1rem 0;
+  padding: 0;
+}
+
+.tech-chip {
+  display: inline-flex;
+  align-items: center;
+  font-size: 0.72rem;
+  line-height: 1.4;
+  padding: 0.15em 0.65em;
+  border-radius: 999px;
+  border: 1px solid;
+  white-space: nowrap;
+  cursor: default;
+}
+
+.tech-chip-light {
+  color: $cardSubtitle;
+  border-color: rgba(0, 0, 0, 0.18);
+  background: rgba(0, 0, 0, 0.03);
+}
+
+.tech-chip-dark {
+  color: #e2e8f0;
+  border-color: rgba(255, 255, 255, 0.22);
+  background: rgba(255, 255, 255, 0.06);
+}
+
 @media (max-width: 768px) {
   .project-subtitle {
     font-size: 16px;

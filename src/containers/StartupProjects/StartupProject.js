@@ -65,6 +65,25 @@ export default function StartupProject() {
                     >
                       {project.projectDesc}
                     </p>
+                    {project.techStack && project.techStack.length > 0 ? (
+                      <ul
+                        className="tech-stack-list"
+                        aria-label={`Technologies used in ${project.projectName}`}
+                      >
+                        {project.techStack.map(tech => (
+                          <li
+                            key={tech}
+                            className={
+                              isDark
+                                ? "dark-mode tech-chip tech-chip-dark"
+                                : "tech-chip tech-chip-light"
+                            }
+                          >
+                            {tech}
+                          </li>
+                        ))}
+                      </ul>
+                    ) : null}
                     {project.footerLink ? (
                       <div className="project-card-footer">
                         {project.footerLink.map((link, i) => {
