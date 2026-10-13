@@ -1,0 +1,236 @@
+<svg width="1200" height="720" viewBox="0 0 1200 720" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">FleetGuard Kubernetes Operator Architecture</title>
+  <desc id="desc">Architecture diagram of FleetGuard Operator: generic TTL resource cleanup for Kubernetes with Kubebuilder, controller-runtime, and Ginkgo envtest.</desc>
+
+  <defs>
+    <linearGradient id="bgGradient" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#070D1B"/>
+      <stop offset="50%" stop-color="#0D1B2A"/>
+      <stop offset="100%" stop-color="#1B263B"/>
+    </linearGradient>
+
+    <linearGradient id="crdCard" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#16233B"/>
+      <stop offset="100%" stop-color="#0E1726"/>
+    </linearGradient>
+
+    <linearGradient id="ctrlCard" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#1A2D4F"/>
+      <stop offset="100%" stop-color="#10203B"/>
+    </linearGradient>
+
+    <linearGradient id="actionCard" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1B273A"/>
+      <stop offset="100%" stop-color="#111B2C"/>
+    </linearGradient>
+
+    <linearGradient id="k8sBlue" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#326CE5"/>
+      <stop offset="100%" stop-color="#5B8FF9"/>
+    </linearGradient>
+
+    <linearGradient id="cyanAccent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#00D2FF"/>
+      <stop offset="100%" stop-color="#00F0FF"/>
+    </linearGradient>
+
+    <linearGradient id="orangeWarning" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#FF9900"/>
+      <stop offset="100%" stop-color="#FFB347"/>
+    </linearGradient>
+
+    <linearGradient id="greenSuccess" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#10B981"/>
+      <stop offset="100%" stop-color="#34D399"/>
+    </linearGradient>
+
+    <filter id="glowShadow" x="-15%" y="-15%" width="130%" height="130%">
+      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#000000" flood-opacity="0.5"/>
+    </filter>
+
+    <filter id="accentGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="0" stdDeviation="8" flood-color="#326CE5" flood-opacity="0.6"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="720" fill="url(#bgGradient)"/>
+  <circle cx="1100" cy="120" r="220" fill="#326CE5" opacity="0.12"/>
+  <circle cx="150" cy="650" r="260" fill="#00D2FF" opacity="0.08"/>
+
+  <!-- Top Badges / Tech Chips -->
+  <g>
+    <!-- K8s Operator -->
+    <rect x="70" y="40" width="220" height="42" rx="21" fill="#13233F" stroke="#326CE5" stroke-width="1.5"/>
+    <circle cx="95" cy="61" r="10" fill="#326CE5"/>
+    <text x="95" y="66" text-anchor="middle" fill="#FFFFFF" font-family="'JetBrains Mono', Consolas, monospace" font-size="13" font-weight="700">⎈</text>
+    <text x="120" y="67" fill="#E2EDFF" font-family="'Inter', Segoe UI, sans-serif" font-size="14" font-weight="600">Kubernetes Operator</text>
+
+    <!-- Go & Kubebuilder -->
+    <rect x="306" y="40" width="230" height="42" rx="21" fill="#13233F" stroke="#00ADD8" stroke-width="1.5"/>
+    <text x="325" y="67" fill="#00D2FF" font-family="'JetBrains Mono', Consolas, monospace" font-size="14" font-weight="700">Go</text>
+    <text x="355" y="67" fill="#E2EDFF" font-family="'Inter', Segoe UI, sans-serif" font-size="14" font-weight="600">+ Kubebuilder v4</text>
+
+    <!-- controller-runtime -->
+    <rect x="552" y="40" width="230" height="42" rx="21" fill="#13233F" stroke="#5B8FF9" stroke-width="1.5"/>
+    <text x="667" y="67" text-anchor="middle" fill="#C8DCFF" font-family="'JetBrains Mono', Consolas, monospace" font-size="13" font-weight="500">controller-runtime 0.25</text>
+
+    <!-- Ginkgo envtest -->
+    <rect x="798" y="40" width="180" height="42" rx="21" fill="#13233F" stroke="#10B981" stroke-width="1.5"/>
+    <circle cx="820" cy="61" r="6" fill="#10B981"/>
+    <text x="836" y="67" fill="#A7F3D0" font-family="'Inter', Segoe UI, sans-serif" font-size="13" font-weight="600">Ginkgo envtest</text>
+
+    <!-- GitHub Actions CI -->
+    <rect x="994" y="40" width="136" height="42" rx="21" fill="#13233F" stroke="#238636" stroke-width="1.5"/>
+    <circle cx="1015" cy="61" r="5" fill="#34D399"/>
+    <text x="1029" y="67" fill="#E2EDFF" font-family="'Inter', Segoe UI, sans-serif" font-size="13" font-weight="600">CI Passing</text>
+  </g>
+
+  <!-- Left Card: Custom Resource Definition -->
+  <g filter="url(#glowShadow)">
+    <rect x="70" y="112" width="310" height="440" rx="16" fill="url(#crdCard)" stroke="#326CE5" stroke-width="2"/>
+    <rect x="70" y="112" width="310" height="48" rx="16" fill="#1A2D52"/>
+    <text x="100" y="142" fill="#FFFFFF" font-family="'Inter', Segoe UI, sans-serif" font-size="16" font-weight="700">Custom Resource (CRD)</text>
+    <text x="350" y="142" text-anchor="end" fill="#00D2FF" font-family="'JetBrains Mono', Consolas, monospace" font-size="12">v1alpha1</text>
+
+    <!-- YAML Snippet Inside Card -->
+    <rect x="90" y="176" width="270" height="230" rx="10" fill="#080E1C" stroke="#223555" stroke-width="1"/>
+    
+    <text x="106" y="206" fill="#5B8FF9" font-family="'JetBrains Mono', Consolas, monospace" font-size="13" font-weight="600">kind:</text>
+    <text x="156" y="206" fill="#FFFFFF" font-family="'JetBrains Mono', Consolas, monospace" font-size="13">TTLCleanup</text>
+
+    <text x="106" y="234" fill="#00D2FF" font-family="'JetBrains Mono', Consolas, monospace" font-size="13" font-weight="600">spec:</text>
+    
+    <text x="122" y="260" fill="#88A2D0" font-family="'JetBrains Mono', Consolas, monospace" font-size="12">targetRef:</text>
+    <text x="138" y="282" fill="#C8DCFF" font-family="'JetBrains Mono', Consolas, monospace" font-size="11">apiVersion: batch/v1</text>
+    <text x="138" y="302" fill="#C8DCFF" font-family="'JetBrains Mono', Consolas, monospace" font-size="11">kind: Job / Pod / CR</text>
+    
+    <text x="122" y="328" fill="#88A2D0" font-family="'JetBrains Mono', Consolas, monospace" font-size="12">labelSelector:</text>
+    <text x="138" y="348" fill="#FFB347" font-family="'JetBrains Mono', Consolas, monospace" font-size="11">ttl-cleanup: "true"</text>
+
+    <text x="122" y="374" fill="#10B981" font-family="'JetBrains Mono', Consolas, monospace" font-size="12" font-weight="600">ttl: 24h / 30m</text>
+    <text x="122" y="396" fill="#FF9900" font-family="'JetBrains Mono', Consolas, monospace" font-size="12" font-weight="600">dryRun: true / false</text>
+
+    <!-- Scope highlights -->
+    <rect x="90" y="420" width="270" height="52" rx="8" fill="#121F38" stroke="#253E6A" stroke-width="1"/>
+    <text x="106" y="442" fill="#7E9EC9" font-family="'Inter', Segoe UI, sans-serif" font-size="11" font-weight="600">TARGETING SCOPE</text>
+    <text x="106" y="460" fill="#E2EDFF" font-family="'Inter', Segoe UI, sans-serif" font-size="12">Any Built-in or Custom Resource</text>
+
+    <rect x="90" y="482" width="270" height="52" rx="8" fill="#121F38" stroke="#253E6A" stroke-width="1"/>
+    <text x="106" y="504" fill="#7E9EC9" font-family="'Inter', Segoe UI, sans-serif" font-size="11" font-weight="600">DRY-RUN SAFETY</text>
+    <text x="106" y="522" fill="#FFD166" font-family="'Inter', Segoe UI, sans-serif" font-size="12">Simulate before purging live cluster</text>
+  </g>
+
+  <!-- Flow Arrow: CRD -> Controller -->
+  <g stroke="#00D2FF" stroke-width="3" opacity="0.9">
+    <line x1="380" y1="332" x2="435" y2="332"/>
+    <polygon points="440,332 430,326 430,338" fill="#00D2FF"/>
+  </g>
+  <text x="410" y="318" text-anchor="middle" fill="#00D2FF" font-family="'JetBrains Mono', Consolas, monospace" font-size="11" font-weight="600">WATCH</text>
+
+  <!-- Center Card: Operator Controller Engine -->
+  <g filter="url(#glowShadow)">
+    <rect x="445" y="112" width="370" height="440" rx="16" fill="url(#ctrlCard)" stroke="#5B8FF9" stroke-width="2"/>
+    <rect x="445" y="112" width="370" height="48" rx="16" fill="#1E3563"/>
+    
+    <!-- Title -->
+    <text x="475" y="142" fill="#FFFFFF" font-family="'Inter', Segoe UI, sans-serif" font-size="16" font-weight="700">FleetGuard Controller Manager</text>
+
+    <!-- Sub-module 1: Dynamic Discovery & Watch -->
+    <rect x="470" y="176" width="320" height="72" rx="10" fill="#0C172E" stroke="#284880" stroke-width="1.5"/>
+    <circle cx="496" cy="212" r="14" fill="#326CE5"/>
+    <text x="496" y="217" text-anchor="middle" fill="#FFFFFF" font-family="'JetBrains Mono', Consolas, monospace" font-size="12">01</text>
+    <text x="522" y="204" fill="#FFFFFF" font-family="'Inter', Segoe UI, sans-serif" font-size="14" font-weight="600">Dynamic Client &amp; Informers</text>
+    <text x="522" y="226" fill="#93B3E5" font-family="'Inter', Segoe UI, sans-serif" font-size="12">Discovers schema &amp; watches target kinds</text>
+
+    <!-- Sub-module 2: Expiry Math Engine -->
+    <rect x="470" y="260" width="320" height="82" rx="10" fill="#0C172E" stroke="#00D2FF" stroke-width="1.5"/>
+    <circle cx="496" cy="301" r="14" fill="#00B4D8"/>
+    <text x="496" y="306" text-anchor="middle" fill="#031024" font-family="'JetBrains Mono', Consolas, monospace" font-size="12" font-weight="800">02</text>
+    <text x="522" y="288" fill="#FFFFFF" font-family="'Inter', Segoe UI, sans-serif" font-size="14" font-weight="600">TTL Expiry Math Engine</text>
+    <text x="522" y="308" fill="#64D8CB" font-family="'JetBrains Mono', Consolas, monospace" font-size="11">Age = Now - creationTimestamp</text>
+    <text x="522" y="326" fill="#93B3E5" font-family="'Inter', Segoe UI, sans-serif" font-size="11">Requeues on soonest remaining expiry</text>
+
+    <!-- Sub-module 3: Decision Branch (Dry-Run vs Real Delete) -->
+    <rect x="470" y="354" width="320" height="84" rx="10" fill="#0C172E" stroke="#FF9900" stroke-width="1.5"/>
+    <circle cx="496" cy="396" r="14" fill="#FF9900"/>
+    <text x="496" y="401" text-anchor="middle" fill="#241400" font-family="'JetBrains Mono', Consolas, monospace" font-size="12" font-weight="800">03</text>
+    <text x="522" y="380" fill="#FFFFFF" font-family="'Inter', Segoe UI, sans-serif" font-size="14" font-weight="600">Mode-Aware Reconciler</text>
+    <text x="522" y="402" fill="#FFD166" font-family="'Inter', Segoe UI, sans-serif" font-size="12">dryRun == true  ➔  Event: WouldDelete</text>
+    <text x="522" y="422" fill="#34D399" font-family="'Inter', Segoe UI, sans-serif" font-size="12">dryRun == false ➔  API: Delete Resource</text>
+
+    <!-- Sub-module 4: Status Reporter -->
+    <rect x="470" y="450" width="320" height="82" rx="10" fill="#0C172E" stroke="#10B981" stroke-width="1.5"/>
+    <circle cx="496" cy="491" r="14" fill="#10B981"/>
+    <text x="496" y="496" text-anchor="middle" fill="#00291B" font-family="'JetBrains Mono', Consolas, monospace" font-size="12" font-weight="800">04</text>
+    <text x="522" y="474" fill="#FFFFFF" font-family="'Inter', Segoe UI, sans-serif" font-size="14" font-weight="600">Audit &amp; Status Subresource</text>
+    <text x="522" y="496" fill="#A7F3D0" font-family="'JetBrains Mono', Consolas, monospace" font-size="11">status.objectsMatched / objectsDeleted</text>
+    <text x="522" y="514" fill="#A7F3D0" font-family="'JetBrains Mono', Consolas, monospace" font-size="11">status.lastCleanupTime timestamp</text>
+  </g>
+
+  <!-- Flow Arrows: Controller -> Target Actions -->
+  <g stroke="#34D399" stroke-width="3" opacity="0.9">
+    <line x1="815" y1="260" x2="865" y2="230"/>
+    <polygon points="870,227 860,227 865,236" fill="#34D399"/>
+  </g>
+  <g stroke="#FF9900" stroke-width="3" opacity="0.9">
+    <line x1="815" y1="395" x2="865" y2="395"/>
+    <polygon points="870,395 860,389 860,401" fill="#FF9900"/>
+  </g>
+  <g stroke="#5B8FF9" stroke-width="3" opacity="0.9">
+    <line x1="815" y1="490" x2="865" y2="490"/>
+    <polygon points="870,490 860,484 860,496" fill="#5B8FF9"/>
+  </g>
+
+  <!-- Right Side: Targets & Outcomes -->
+  <!-- Box 1: Expired Resources Purged -->
+  <g filter="url(#glowShadow)">
+    <rect x="875" y="140" width="255" height="150" rx="14" fill="url(#actionCard)" stroke="#10B981" stroke-width="2"/>
+    <rect x="875" y="140" width="255" height="38" rx="14" fill="#0D2E24"/>
+    <text x="895" y="165" fill="#34D399" font-family="'Inter', Segoe UI, sans-serif" font-size="14" font-weight="700">Cluster Objects Purged</text>
+
+    <g fill="#0A1624">
+      <rect x="893" y="190" width="218" height="26" rx="6" stroke="#1D4E3E" stroke-width="1"/>
+      <text x="905" y="208" fill="#E2EDFF" font-family="'JetBrains Mono', Consolas, monospace" font-size="12">✓ batch/v1 Completed Jobs</text>
+      
+      <rect x="893" y="222" width="218" height="26" rx="6" stroke="#1D4E3E" stroke-width="1"/>
+      <text x="905" y="240" fill="#E2EDFF" font-family="'JetBrains Mono', Consolas, monospace" font-size="12">✓ Ephemeral Preview Pods</text>
+
+      <rect x="893" y="254" width="218" height="26" rx="6" stroke="#1D4E3E" stroke-width="1"/>
+      <text x="905" y="272" fill="#E2EDFF" font-family="'JetBrains Mono', Consolas, monospace" font-size="12">✓ Scratch Custom CRDs</text>
+    </g>
+  </g>
+
+  <!-- Box 2: Dry-Run Events & Audit Trail -->
+  <g filter="url(#glowShadow)">
+    <rect x="875" y="315" width="255" height="110" rx="14" fill="url(#actionCard)" stroke="#FF9900" stroke-width="2"/>
+    <rect x="875" y="315" width="255" height="36" rx="14" fill="#2E1D05"/>
+    <text x="895" y="339" fill="#FFB347" font-family="'Inter', Segoe UI, sans-serif" font-size="14" font-weight="700">Kube Events &amp; Audit</text>
+
+    <text x="895" y="372" fill="#FFE2B0" font-family="'JetBrains Mono', Consolas, monospace" font-size="11">Event: Normal WouldDelete</text>
+    <text x="895" y="392" fill="#9FBAD8" font-family="'Inter', Segoe UI, sans-serif" font-size="11">Logs matches without deletion</text>
+    <text x="895" y="410" fill="#9FBAD8" font-family="'Inter', Segoe UI, sans-serif" font-size="11">Zero-downtime rule validation</text>
+  </g>
+
+  <!-- Box 3: Requeue Scheduler -->
+  <g filter="url(#glowShadow)">
+    <rect x="875" y="445" width="255" height="106" rx="14" fill="url(#actionCard)" stroke="#5B8FF9" stroke-width="2"/>
+    <rect x="875" y="445" width="255" height="36" rx="14" fill="#14264A"/>
+    <text x="895" y="469" fill="#8BB2FF" font-family="'Inter', Segoe UI, sans-serif" font-size="14" font-weight="700">Event-Driven Requeue</text>
+
+    <text x="895" y="502" fill="#C8DCFF" font-family="'Inter', Segoe UI, sans-serif" font-size="12">Next reconcile = soonest TTL</text>
+    <text x="895" y="522" fill="#7E9EC9" font-family="'Inter', Segoe UI, sans-serif" font-size="11">Zero polling overhead on API</text>
+  </g>
+
+  <!-- Bottom Hero Footer Bar -->
+  <g>
+    <rect x="70" y="580" width="1060" height="92" rx="16" fill="#0C1527" stroke="#253E6A" stroke-width="1.5" filter="url(#glowShadow)"/>
+    
+    <text x="100" y="620" fill="#FFFFFF" font-family="'Inter', Segoe UI, sans-serif" font-size="24" font-weight="800">FleetGuard: Generic TTL Cleanup Operator for Kubernetes</text>
+    <text x="100" y="648" fill="#8FB2E6" font-family="'Inter', Segoe UI, sans-serif" font-size="14" font-weight="400">Kubernetes Controller &#8226; Kubebuilder &#8226; Go &#8226; Declarative TTLCleanup CRD &#8226; Dynamic Client &#8226; Ginkgo Integration Tests</text>
+    
+    <!-- GitHub Badge Button -->
+    <rect x="940" y="605" width="165" height="42" rx="8" fill="#326CE5"/>
+    <text x="1022" y="631" text-anchor="middle" fill="#FFFFFF" font-family="'Inter', Segoe UI, sans-serif" font-size="13" font-weight="700">github.com/franklynux</text>
+  </g>
+</svg>

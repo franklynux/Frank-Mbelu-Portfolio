@@ -61,6 +61,7 @@ const skillsSection = {
     { skillName: "terraform", fontAwesomeClassname: "fas fa-layer-group" },
     { skillName: "docker", fontAwesomeClassname: "fab fa-docker" },
     { skillName: "kubernetes", fontAwesomeClassname: "fas fa-dharmachakra" },
+    { skillName: "golang", fontAwesomeClassname: "devicon-go-plain" },
     { skillName: "jenkins", fontAwesomeClassname: "fab fa-jenkins" },
     { skillName: "ansible", fontAwesomeClassname: "fas fa-robot" },
     { skillName: "prometheus", fontAwesomeClassname: "fas fa-fire" },
@@ -185,6 +186,18 @@ const bigProjects = {
   title: "Projects",
   subtitle: "Infrastructure and platform projects I have built, with source code and architecture notes.",
   projects: [
+    {
+      image: require("./assets/images/fleetguard_operator_architecture.png"),
+      projectName: "FleetGuard: Generic TTL Cleanup Operator for Kubernetes",
+      projectDesc:
+        "A Kubernetes operator built in Go with Kubebuilder and controller-runtime that automatically cleans up expired cluster resources (Jobs, Pods, preview CRDs) using a declarative TTLCleanup CRD, label selectors, dry-run mode, and Ginkgo envtest coverage.",
+      footerLink: [
+        {
+          name: "View on GitHub",
+          url: "https://github.com/franklynux/fleetguard-operator"
+        }
+      ]
+    },
     {
       image: require("./assets/images/fleetform_architecture.jpg"),
       projectName: "Fleetform: Multi-Cluster GitOps Platform on AWS EKS",

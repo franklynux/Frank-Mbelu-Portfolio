@@ -114,35 +114,27 @@ if (USE_GITHUB_DATA === "true") {
 
 if (MEDIUM_USERNAME !== undefined) {
   console.log(`Fetching Medium blogs data for ${MEDIUM_USERNAME}`);
-  const options = {
-    hostname: "api.rss2json.com",
-    path: `/v1/api.json?rss_url=https://medium.com/feed/@${MEDIUM_USERNAME}`,
-    port: 443,
-    method: "GET"
-  };
+  const Parser = require("rss-parser");
+  const parser = new Parser();
 
-  const req = https.request(options, res => {
-    let mediumData = "";
+  parser.parseURL(`https://medium.com/feed/@${MEDIUM_USERNAME}`).then(feed => {
+    const items = feed.items.map(item => ({
+      title: item.title,
+      pubDate: item.pubDate,
+      link: item.link,
+      guid: item.guid,
+      author: item.creator,
+      description: item.contentSnippet || item.content,
+      content: item["content:encoded"] || item.content
+    }));
 
-    console.log(`statusCode: ${res.statusCode}`);
-    if (res.statusCode !== 200) {
-      throw new Error(ERR.requestMediumFailed);
-    }
-
-    res.on("data", d => {
-      mediumData += d;
+    const result = JSON.stringify({ items: items });
+    fs.writeFile("./public/blogs.json", result, function (err) {
+      if (err) return console.log(err);
+      console.log("saved file to public/blogs.json");
     });
-    res.on("end", () => {
-      fs.writeFile("./public/blogs.json", mediumData, function (err) {
-        if (err) return console.log(err);
-        console.log("saved file to public/blogs.json");
-      });
-    });
-  });
-
-  req.on("error", error => {
+  }).catch(error => {
+    console.error("The request to Medium didn't succeed. Check if Medium username in your .env file is correct.");
     throw error;
   });
-
-  req.end();
 }
