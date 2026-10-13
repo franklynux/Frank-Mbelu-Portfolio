@@ -55,21 +55,21 @@ const skillsSection = {
   ],
 
   softwareSkills: [
-    { skillName: "aws", fontAwesomeClassname: "fab fa-aws" },
-    { skillName: "gcp", fontAwesomeClassname: "devicon-googlecloud-plain" },
-    { skillName: "azure", fontAwesomeClassname: "devicon-azure-plain" },
-    { skillName: "terraform", fontAwesomeClassname: "fas fa-layer-group" },
-    { skillName: "docker", fontAwesomeClassname: "fab fa-docker" },
-    { skillName: "kubernetes", fontAwesomeClassname: "fas fa-dharmachakra" },
-    { skillName: "golang", fontAwesomeClassname: "devicon-go-plain" },
-    { skillName: "jenkins", fontAwesomeClassname: "fab fa-jenkins" },
-    { skillName: "ansible", fontAwesomeClassname: "fas fa-robot" },
-    { skillName: "prometheus", fontAwesomeClassname: "fas fa-fire" },
-    { skillName: "grafana", fontAwesomeClassname: "fas fa-tachometer-alt" },
-    { skillName: "python", fontAwesomeClassname: "fab fa-python" },
-    { skillName: "linux", fontAwesomeClassname: "fab fa-linux" },
-    { skillName: "github", fontAwesomeClassname: "fab fa-github" },
-    { skillName: "bash", fontAwesomeClassname: "fas fa-terminal" }
+    {skillName: "aws", fontAwesomeClassname: "fab fa-aws"},
+    {skillName: "gcp", fontAwesomeClassname: "devicon-googlecloud-plain"},
+    {skillName: "azure", fontAwesomeClassname: "devicon-azure-plain"},
+    {skillName: "terraform", fontAwesomeClassname: "fas fa-layer-group"},
+    {skillName: "docker", fontAwesomeClassname: "fab fa-docker"},
+    {skillName: "kubernetes", fontAwesomeClassname: "fas fa-dharmachakra"},
+    {skillName: "golang", fontAwesomeClassname: "devicon-go-plain"},
+    {skillName: "jenkins", fontAwesomeClassname: "fab fa-jenkins"},
+    {skillName: "ansible", fontAwesomeClassname: "fas fa-robot"},
+    {skillName: "prometheus", fontAwesomeClassname: "fas fa-fire"},
+    {skillName: "grafana", fontAwesomeClassname: "fas fa-tachometer-alt"},
+    {skillName: "python", fontAwesomeClassname: "fab fa-python"},
+    {skillName: "linux", fontAwesomeClassname: "fab fa-linux"},
+    {skillName: "github", fontAwesomeClassname: "fab fa-github"},
+    {skillName: "bash", fontAwesomeClassname: "fas fa-terminal"}
   ],
   display: true
 };
@@ -114,15 +114,15 @@ const educationInfo = {
 const techStack = {
   viewSkillBars: true,
   experience: [
-    { Stack: "Infrastructure as Code", progressPercentage: "85%" },
-    { Stack: "Cloud Architecture", progressPercentage: "90%" },
-    { Stack: "CI/CD Automation", progressPercentage: "85%" },
-    { Stack: "Containerization & Orchestration", progressPercentage: "80%" },
-    { Stack: "Monitoring & Logging", progressPercentage: "75%" },
-    { Stack: "Cloud Security & Governance", progressPercentage: "70%" },
-    { Stack: "Automation & Scripting", progressPercentage: "80%" },
-    { Stack: "Cloud Networking & Load Balancing", progressPercentage: "70%" },
-    { Stack: "Platform Engineering & GitOps", progressPercentage: "80%" }
+    {Stack: "Infrastructure as Code", progressPercentage: "85%"},
+    {Stack: "Cloud Architecture", progressPercentage: "90%"},
+    {Stack: "CI/CD Automation", progressPercentage: "85%"},
+    {Stack: "Containerization & Orchestration", progressPercentage: "80%"},
+    {Stack: "Monitoring & Logging", progressPercentage: "75%"},
+    {Stack: "Cloud Security & Governance", progressPercentage: "70%"},
+    {Stack: "Automation & Scripting", progressPercentage: "80%"},
+    {Stack: "Cloud Networking & Load Balancing", progressPercentage: "70%"},
+    {Stack: "Platform Engineering & GitOps", progressPercentage: "80%"}
   ],
   displayCodersrank: false
 };
@@ -184,7 +184,8 @@ const openSource = {
 
 const bigProjects = {
   title: "Projects",
-  subtitle: "Infrastructure and platform projects I have built, with source code and architecture notes.",
+  subtitle:
+    "Infrastructure and platform projects I have built, with source code and architecture notes.",
   projects: [
     {
       image: require("./assets/images/fleetguard_operator_architecture.png"),
@@ -309,8 +310,7 @@ const bigProjects = {
 
 const achievementSection = {
   title: emoji("Certifications 🏆"),
-  subtitle:
-    "AWS certifications and DevOps training.",
+  subtitle: "AWS certifications and DevOps training.",
   achievementsCards: [
     {
       title: "AWS Certified Solutions Architect - Associate",
@@ -355,9 +355,7 @@ const blogSection = {
 
 const talkSection = {
   title: "Talks",
-  subtitle: emoji(
-    "Talks and presentations I have given."
-  ),
+  subtitle: emoji("Talks and presentations I have given."),
   talks: [],
   display: false
 };

@@ -24,11 +24,11 @@ const fallbackProfile = {
               name: "fleetguard-operator",
               description: "Generic TTL Cleanup for Kubernetes",
               forkCount: 0,
-              stargazers: { totalCount: 0 },
+              stargazers: {totalCount: 0},
               url: "https://github.com/franklynux/fleetguard-operator",
               id: "R_kgDOM8tq-A",
               diskUsage: 50,
-              primaryLanguage: { name: "Go", color: "#00ADD8" }
+              primaryLanguage: {name: "Go", color: "#00ADD8"}
             }
           }
         ]
@@ -51,7 +51,7 @@ function ensureFallbackBlogs() {
   if (!fs.existsSync("./public/blogs.json")) {
     fs.writeFileSync(
       "./public/blogs.json",
-      JSON.stringify({ items: [] }, null, 2)
+      JSON.stringify({items: []}, null, 2)
     );
     console.log("Created fallback public/blogs.json");
   }
@@ -192,7 +192,7 @@ if (MEDIUM_USERNAME !== undefined) {
         content: item["content:encoded"] || item.content
       }));
 
-      const result = JSON.stringify({ items: items });
+      const result = JSON.stringify({items: items});
       fs.writeFileSync("./public/blogs.json", result);
       console.log("saved file to public/blogs.json");
     })
