@@ -191,10 +191,17 @@ const bigProjects = {
       image: require("./assets/images/fleetguard_operator_architecture.png"),
       projectName: "FleetGuard: Generic TTL Cleanup Operator for Kubernetes",
       projectDesc:
-        "A Kubernetes operator built in Go with Kubebuilder and controller-runtime that automatically cleans up expired cluster resources (Jobs, Pods, preview CRDs) using a declarative TTLCleanup CRD, label selectors, dry-run mode, and Ginkgo envtest coverage.",
+        "Extends the Kubernetes API with a TTLCleanup custom resource that deletes expired objects of any kind (Jobs, Pods, preview-environment CRs), scoped by namespace and label selector. A dry-run mode reports what would be deleted before anything is removed, and an envtest suite covers expiry logic and requeue timing.",
+      techStack: [
+        "Go",
+        "Kubebuilder",
+        "controller-runtime",
+        "Ginkgo",
+        "GitHub Actions"
+      ],
       footerLink: [
         {
-          name: "View on GitHub",
+          name: "Source (Go)",
           url: "https://github.com/franklynux/fleetguard-operator"
         }
       ]
@@ -203,7 +210,8 @@ const bigProjects = {
       image: require("./assets/images/fleetform_architecture.jpg"),
       projectName: "Fleetform: Multi-Cluster GitOps Platform on AWS EKS",
       projectDesc:
-        "A hub-and-spoke fleet of EKS clusters provisioned with Terraform (multi-VPC, reusable modules). Argo CD ApplicationSets and layered Helm values let teams onboard a new app with a single pull request.",
+        "One hub cluster running Argo CD manages a fleet of spoke EKS clusters across separate VPCs. ApplicationSets and layered Helm values mean a team onboards a new app with a single pull request instead of per-cluster setup.",
+      techStack: ["AWS EKS", "Terraform", "Argo CD", "Helm"],
       footerLink: [
         {
           name: "Infrastructure (Terraform)",
@@ -219,10 +227,19 @@ const bigProjects = {
       image: require("./assets/images/aws_django_ha_platform.png"),
       projectName: "Highly Available Django Platform on AWS",
       projectDesc:
-        "A highly available Django deployment on AWS, provisioned with Terraform and CloudFormation, deployed to EKS with Helm, and monitored with Prometheus and Grafana.",
+        "Designed to survive failure: the same Django app is provisioned two ways, with Terraform and with CloudFormation, then deployed to EKS using Helm. Prometheus and Grafana provide the visibility to see problems before users do.",
+      techStack: [
+        "Django",
+        "AWS EKS",
+        "Terraform",
+        "CloudFormation",
+        "Helm",
+        "Prometheus",
+        "Grafana"
+      ],
       footerLink: [
         {
-          name: "View on GitHub",
+          name: "Architecture & README",
           url: "https://github.com/franklynux/aws-django-ha-platform/blob/main/README.md"
         }
       ]
@@ -231,10 +248,18 @@ const bigProjects = {
       image: require("./assets/images/terraform_infrastructure_diagram.png"),
       projectName: "Automated WordPress Deployment on AWS using Terraform",
       projectDesc:
-        "WordPress on AWS built with modular Terraform: an Auto Scaling group behind a load balancer, RDS for the database, EFS for shared storage, and CloudWatch monitoring.",
+        "A stateful workload done the classic way: modular Terraform wires an Auto Scaling group behind a load balancer to RDS for data and EFS for shared files, so any instance can be replaced without losing content. CloudWatch covers monitoring.",
+      techStack: [
+        "WordPress",
+        "Terraform",
+        "EC2 Auto Scaling",
+        "RDS",
+        "EFS",
+        "CloudWatch"
+      ],
       footerLink: [
         {
-          name: "View on GitHub",
+          name: "Terraform modules",
           url: "https://github.com/franklynux/terraform-wordpress-aws/blob/main/README.md"
         }
       ]
@@ -244,10 +269,11 @@ const bigProjects = {
       projectName:
         "Full-Stack E-commerce Platform with Containerized Deployment on AWS ECS",
       projectDesc:
-        "A containerized e-commerce app split into microservices and deployed on AWS ECS, with a CI/CD pipeline, private networking and auto-scaling.",
+        "An e-commerce app split into microservices and run on ECS, with services in private networking and auto-scaling. A CI/CD pipeline takes each change from commit to deployment.",
+      techStack: ["AWS ECS", "Docker", "CI/CD", "Auto Scaling"],
       footerLink: [
         {
-          name: "View on GitHub",
+          name: "Architecture & README",
           url: "https://github.com/franklynux/ecommerce-platform/blob/main/README.md"
         }
       ]
@@ -256,10 +282,11 @@ const bigProjects = {
       image: require("./assets/images/text-to-image-microservice.png"),
       projectName: "AI-Powered Text-to-Image Microservice",
       projectDesc:
-        "A text-to-image microservice running on AWS App Runner, provisioned with Terraform. It handles over 1,000 requests a day with a 95% success rate.",
+        "A managed, low-ops approach to serving a model: a text-to-image API on App Runner with all infrastructure defined in Terraform. It handles over 1,000 requests a day with a 95% success rate.",
+      techStack: ["AWS App Runner", "Terraform", "Python"],
       footerLink: [
         {
-          name: "View on GitHub",
+          name: "Source & README",
           url: "https://github.com/franklynux/text-to-image-microservice/blob/main/README.md"
         }
       ]
@@ -270,10 +297,11 @@ const bigProjects = {
       projectName:
         "Cloud-Native E-commerce Platform with Microservices Architecture",
       projectDesc:
-        "An e-commerce platform built as microservices on Amazon EKS, with automated CI/CD and Prometheus/Grafana monitoring.",
+        "The Kubernetes counterpart to the ECS build: the same microservice idea run on Amazon EKS, with an automated CI/CD pipeline and Prometheus and Grafana dashboards for observability.",
+      techStack: ["Amazon EKS", "Kubernetes", "CI/CD", "Prometheus", "Grafana"],
       footerLink: [
         {
-          name: "View on GitHub",
+          name: "Architecture & README",
           url: "https://github.com/franklynux/ecommerce-platform-microservice-architecture/blob/main/README.md"
         }
       ]
@@ -283,10 +311,11 @@ const bigProjects = {
       image: require("./assets/images/multi_environment_kustomize.png"),
       projectName: "Multi-Environment Application Deployment with Kustomize",
       projectDesc:
-        "Kustomize bases and overlays for dev, staging and prod on AWS EKS, with RBAC, a CI/CD pipeline and GitOps-driven deployments.",
+        "One set of base manifests, three environments: Kustomize overlays configure dev, staging and prod on EKS without duplicating YAML. RBAC limits who can change what, and GitOps-driven deployments promote changes through the pipeline.",
+      techStack: ["Kustomize", "AWS EKS", "RBAC", "GitOps", "CI/CD"],
       footerLink: [
         {
-          name: "View on GitHub",
+          name: "Kustomize bases & overlays",
           url: "https://github.com/franklynux/multi-environment-app-deployment-with-kustomize/blob/main/README.md"
         }
       ]
@@ -296,10 +325,17 @@ const bigProjects = {
       projectName:
         "Containerized Python Service on AWS ECS Fargate with Terraform & CI/CD",
       projectDesc:
-        "A Python HTTP service on ECS Fargate behind an ALB, built with modular Terraform (VPC, ECR, ALB, ECS, CloudWatch alarms) and deployed through GitHub Actions. Originally built for a cloud engineering technical assessment.",
+        "Built for a cloud engineering technical assessment. A Python HTTP service runs on serverless Fargate behind an ALB, with a modular Terraform layout (VPC, ECR, ALB, ECS, CloudWatch alarms) and a GitHub Actions pipeline that deploys it.",
+      techStack: [
+        "Python",
+        "ECS Fargate",
+        "Terraform",
+        "GitHub Actions",
+        "CloudWatch"
+      ],
       footerLink: [
         {
-          name: "View on GitHub",
+          name: "Source & Terraform",
           url: "https://github.com/franklynux/aws-ecs-fargate-platform"
         }
       ]
